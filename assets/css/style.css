@@ -1,0 +1,14 @@
+.body{
+   background-image: url("assets/img/Digimon.jpg");
+  background-repeat: no-repeat;
+   background-attachment: fixed;
+   
+
+}
+
+#card {
+    width: 16%;
+    float: left;
+    text-align: center;
+    background-color: aqua;
+}
