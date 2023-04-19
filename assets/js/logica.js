@@ -23,8 +23,8 @@ function Nivel(dataNivel) {
   posicion.innerHTML = ''
   for (let lev of dataNivel ) {
     lev.innerHTML += ` <tr>
-    <th scope="row">${valor.name}</ th>
-    <td>${valor.level}</td>
+    <th scope="row">${lev.name}</th>
+    <td>${lev.level}</td>
     </tr> `
   }
 }
@@ -54,8 +54,8 @@ function mostrarNivel() {
   document.getElementById("tabla_primaria").style.display = "block";
   document.getElementById("hoja").style.display = "none";
   document.getElementById("galeria").style.display = "none";
-  fetch(URL_BASE + '/name/' + lev)
-        .then(res => res.json())
+  fetch(URL_BASE + '/level/' + lev)
+        .then(Response => Response.json())
         .then(datos => {
             Nivel(datos);
         });
@@ -94,13 +94,14 @@ function tomaDato() {
     fetch(URL_BASE + '/name/' + nombreCaracter)
         .then(res => res.json())
         .then(datos => {
-            Nivel(datos);
+            tarjeta(datos);
         });
 };
 
 $(document).ready(function () {
     contenido = document.getElementById("contenido");
     hoja = document.getElementById("hoja");
+    
     fetch(URL_BASE)
         .then(res => res.json())
         .then(datos => {
