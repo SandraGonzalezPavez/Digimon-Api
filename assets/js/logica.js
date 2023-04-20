@@ -1,4 +1,5 @@
 const URL_BASE = 'https://digimon-api.vercel.app/api/digimon';
+const URL_LEVEL = 'https://digimon-api.vercel.app/api/digimon/level';
 let contenido;
 let hoja;
 let dataImagenes;
@@ -19,15 +20,7 @@ function tabla(datos) {
     }
 };
 
-function Nivel(dataNivel) {
-  posicion.innerHTML = ''
-  for (let lev of dataNivel ) {
-    lev.innerHTML += ` <tr>
-    <th scope="row">${lev.name}</th>
-    <td>${lev.level}</td>
-    </tr> `
-  }
-}
+
 function tarjeta(data) {
     hoja.innerHTML = "";
 
@@ -54,7 +47,7 @@ function mostrarNivel() {
   document.getElementById("tabla_primaria").style.display = "block";
   document.getElementById("hoja").style.display = "none";
   document.getElementById("galeria").style.display = "none";
-  fetch(URL_BASE + '/level/' + lev)
+  fetch(URL_LEVEL + lev)
         .then(Response => Response.json())
         .then(datos => {
             Nivel(datos);
