@@ -43,14 +43,14 @@ function tarjeta(data) {
     }
 };
 function mostrarNivel() {
-  let lev = document.getElementById("posicion");
+  let lev = document.getElementById("contenido");
   document.getElementById("tabla_primaria").style.display = "block";
   document.getElementById("hoja").style.display = "none";
   document.getElementById("galeria").style.display = "none";
   fetch(URL_LEVEL + lev)
         .then(Response => Response.json())
         .then(datos => {
-            Nivel(datos);
+            tarjeta(datos);
         });
 };
 
